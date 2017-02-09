@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+	<title>Tp web</title>
+</head>
+<header>
+	<h1>Recherche</h1>
+</header>
+<body>
+	<div class = "form">
+		<form>
+		Titre :
+  		<input type="text" name="title" value="Titre"><br>
+  		
+  		Categorie :
+ 		<input list="categorie" name="categorie">
+	  	<datalist id="categorie">
+		    <option value="TV">
+		    <option value="Journal">
+		    <option value="Web">
+	  	</datalist>
+	  <input type="submit">
+		</form>
+	</div class = "table">
+	<div>
+		<table>
+			<tr>
+				<th>Titre</th>
+				<th>Categorie</th>
+				<th>Auteur</th>
+			</tr>
+			<tr>
+				<td>Le monde</td>
+				<td class="journal">Journal</td>
+				<td>unknow</td>
+			</tr>
+			<tr>
+				<td>Bonjour</td>
+				<td class="web">Web</td>
+				<td>Aurevoir</td>
+			</tr>
+			<tr>
+				<td>De la merde gratuite</td>
+				<td class="tv">TV</td>
+				<td>Un Cretin</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<footer>
+	<p>footer de la page</p>
+</footer>
+
+
+	
+</html>

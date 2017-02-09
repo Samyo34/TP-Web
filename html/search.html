@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 	<link rel="stylesheet" type="text/css" href="./style.css" media="screen"> -->
+	<title>Tp web bootstrap</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="../bootstrap-3.3.7-dist/js/bootstrap.min.js" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src = "../jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<h1>TP Bootstrap</h1>
+				<div class="navbar-header">
+	     				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	       				<span class="sr-only">Toggle navigation</span>
+	        			<span class="icon-bar"></span>
+	        			<span class="icon-bar"></span>
+	        			<span class="icon-bar"></span>
+	     				</button>
+	  				</div>
+	  				 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  				 	<ul class="nav navbar-nav">
+	  				 		<li><a href="#">Inscription <span class="sr-only">(current)</span></a></li>
+				 		    <li><a href="./login.html">Connexion <span class="sr-only"></span></a></li>
+				 		    <li class="active"><a href="./search.html">Rechercher <span class="sr-only"></span></a></li>
+	 				 	</ul>
+				 	</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row">
+			<aside class="col-xs-2 hidden-xs">
+				<p>ASIDE : Suspendisse quis odio tristique, blandit lectus sit amet, fermentum neque. Aenean ac turpis non metus dapibus malesuada. Nulla dignissim finibus urna sit amet elementum.</p>
+			</aside>
+			<div class="col-xs-10 col-xs-hidden">	
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="login" class="col-xs-2 control-label">Titre</label>
+						<div class="col-xs-4">
+			  				<input type="text" name="titre" value="Titre de l'oeuvre"><br>
+			  			</div>
+					</div>
+			  		
+			  		<div class="form-group">
+						<label for="categorie" class="col-xs-2 control-label">Categorie</label>
+						<div class="col-xs-4 btn-group">
+			  				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expended="false">
+				  				Choix de la categorie
+				  				<span class="caret"></span>
+			  				</button>
+			  				<ul class="dropdown-menu">
+							    <li><a href="#">TV</a></li>
+							    <li><a href="#">Journal</a></li>
+							    <li><a href="#">Web</a></li>
+	  						</ul>
+			  			</div>
+					</div>
+					<div class="form-group">
+						<input class="btn btn-default col-xs-offset-3 col-xs-2" type="submit" value="Recherher">
+					</div>
+				  
+				</form>
+			</div>
+		</div>
+		
+		<div class="row">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Titre</th>
+						<th>Categorie</th>
+						<th>Auteur</th>
+					</tr>
+				</thead>
+					<tbody>
+						<tr>
+							<td>Le monde</td>
+							<td class="journal">
+							<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+							Journal
+							<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+							</td>
+							<td>unknow</td>
+						</tr>
+						<tr>
+							<td>Bonjour</td>
+							<td class="web">
+								<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+								Web
+								<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+							</td>
+							<td>Aurevoir</td>
+						</tr>
+						<tr>
+							<td>De la merde gratuite</td>
+							<td class="tv">
+								<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+								TV
+								<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+							</td>
+							<td>Un Cretin</td>
+						</tr>
+					</tbody>
+
+			</table>
+		</div>
+	
+	</div>
+</body>
+</html>
