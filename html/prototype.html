@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<script>
+		function Personne()
+		{
+			this.nom = 'nobody';
+			this.getNom = function()
+			{
+				return this.nom;
+			}
+			
+
+		}
+		
+		Personne.prototype.setNom = function(name)
+		{
+			this.nom = name;
+		}
+		
+		var p1 = new Personne();
+		var p2 = new Personne();
+		
+		p1.setNom("Paul");
+		
+		console.log(p1,p2);
+	</script>
+</body>
+</html>

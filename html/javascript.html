@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<script>
+/* 		for(var i=0;i<100;i++)
+		{
+			if( (i%7) == 0)
+			{
+				console.log(i, 'est divisible par', 7);
+			}
+
+		}*/
+		
+/* 		function estDivisiblePar(nbMax, diviseur){
+			for(var i=0;i<nbMax;i++)
+			{
+				if( (i%diviseur) == 0)
+				{
+					console.log( i, 'est divisible par', diviseur);
+				}
+			}
+
+		} */
+		//estDivisiblePar(100, 7);
+		//estDivisiblePar(100, 13);
+		
+		var list = [2,7,8,9,15,28];
+
+		function estDivisiblePar2(nbMax, diviseur)
+		{
+			var response = [];
+			for(var i=0;i<nbMax;i++)
+			{
+				if(response.length < 5)
+				{
+					if( (i%diviseur) == 0)
+					{
+						response.push(i);
+					}
+				}
+
+			}
+			return response;
+		}
+
+/* 		for(var key in list)
+		{
+			console.log( list[key], 'divise' , estDivisiblePar2(100, list[key]));
+		} */
+		
+		function testReste1(a, b)
+		{
+			return a%b==1;
+		}
+
+		function testReste2(a, b)
+		{
+			return a%b==2;
+		}
+
+		testReste1(7,3);
+		testReste1(8,3);
+		testReste2(7,3);
+		testReste2(8,3);
+
+		function satisfait(a,b,fct)
+		{
+			return fct(a,b);
+		}
+
+		//console.log(satisfait(7,3,testReste1));
+		console.log(
+			satisfait(7,3,function(a,b)
+			{
+				return a%b==0;
+			})
+		);
+
+		(function(a){
+			return a%5==0;
+		})(83);
+
+		(function(a)
+			{
+				return satisfait(83,166, function(a,b)
+											{
+												return a%b==0;
+											});
+			})(5);
+		//----------------------------------TP 3.2------------------------------------
+		function bizarre()
+		{
+			var resultat = 0;
+			function into(max)
+			{
+				for(var i=0;i<max;i++)
+				{
+					resultat++;
+				}
+			}
+			
+			for(var i=0;i<10;i++)
+			{
+				into(10);
+			}
+			return resultat;
+		}
+		console.log(bizarre());
+
+		//100
+		//10
+		//car les variables 
+		
+	</script>
+</body>

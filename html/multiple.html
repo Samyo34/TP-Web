@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<script>
+		
+		function multiple(max)
+		{
+			var list = [];
+			for(var i = 0; i<max;i++)
+			{
+				if(i%3 === 0 || i%5 === 0)
+				{
+					list.push(i);
+				}
+			}
+			return list;
+		}
+		
+		function sum(liste)
+		{
+			var sum =0;
+			for(var i in liste)
+			{
+				sum+=liste[i];	
+			}
+			return sum;
+		}
+		
+		console.log(multiple(1000),sum(multiple(1000)));
+		//----------------------------------------------------
+		//facteur premier de 13195 => 5,7,13,29
+		//600851475143
+		
+		function premier(nombre)
+		{
+			//TODO : optimiser la recherche (/2)
+			var premier = true;
+			for(var i=2;i<(nombre-1)/2;i++)
+			{
+				if(nombre%i === 0)
+				{
+					premier = false;
+					break;
+				}
+			}
+			
+			return premier;
+		}
+		
+		function facteur(valeur)
+		{
+			var liste = [];
+			var index = 2;
+			while(index<=valeur)
+			{
+				if(valeur%index === 0)
+				{	
+					liste.push(index);
+					valeur = valeur/index;
+				}
+				else
+				{
+					index++;
+				}
+			}
+			return liste;
+		}
+		
+		console.log(facteur(600851475143));
+		//---------------------------------------------------
+		//fibo
+		function fiboEven()
+		{
+			var liste = [];
+			var sum =0;
+			liste.push(1);
+			liste.push(1);
+			val = liste[liste.length-1];
+			while(val < 4000000)
+			{	
+				val = liste[liste.length-2]+liste[liste.length-1];
+				liste.push(val);
+				if(val%2 === 0)
+				{
+					sum+=val;
+				}
+			}
+			
+			return sum;
+		}
+		console.log(fiboEven());
+		//--------------------------------------------------
+	</script>
+</body>
+</html>
