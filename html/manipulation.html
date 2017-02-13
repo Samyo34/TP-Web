@@ -11,8 +11,23 @@
 		function Element(titre,emprunte)
 		{
 			this.id=id++;
-			this.titre=titre;
-			this.emprunte = emprunte
+			if(titre != undefined)
+			{
+				this.titre=titre;
+			}
+			else
+			{
+				this.titre="unknow";	
+			}
+			
+			if(emprunte != undefined)
+			{
+				this.emprunte = emprunte
+			}
+			else
+			{
+				this.emprunte = false;
+			}
 		}
 		
 		var element1 = new Element("titre1",true);
@@ -34,7 +49,7 @@
 			addElement(titre,false)
 		}
 		
-		liste[50] = new Element("element");
+		//liste[50] = new Element("element");
 		
 		function getNbElement(list)
 		{
@@ -64,18 +79,21 @@
 		{
 			liste.push(new Element(titre,emprunte));
 			drawGraph();
+			drawColomun();
 		}
 		
 		function modifie(titre)
 		{
 			for(var i in liste)
 			{
-				if(liste[i].name === titre)
+				if(liste[i].titre === titre)
 				{
 					liste[i].emprunte = !liste[i].emprunte;
+
 				}
 			}
 			drawGraph();
+			drawColomun();
 		}
 		
 		function getPercent(list)
@@ -100,7 +118,32 @@
 		} 
 		//console.log('size list : '+getNbElement(liste)+' | nb Element : '+getNbElementExist(liste) + ' '+getPercent(liste)+' '+getNbJours(new Date(1993,6,15)));
 		
-
+		function drawColomun()
+		{
+			var ctx = document.getElementById("ctx").getContext("2d");
+			ctx.lineWidth = 1;
+			ctx.fillStyle = 'red';
+			var nbLibre = getPercent(liste);
+			var nbElement = liste.length;
+			var nb = nbLibre/nbElement;
+			console.log('*'+nb);
+			var cpt = 0;
+			for(var i =0;i<liste.length;i++)
+			{
+				if(cpt < nb)
+				{
+					ctx.fillStyle = 'green';		
+				}
+				else
+				{
+					ctx.fillStyle = 'red';		
+				}
+				ctx.fillRect(30+(i*10),30,10,10)
+				ctx.strokeRect(30+(i*10),30,10,10);
+				cpt++;
+				
+			}
+		}
 	    
 	    function drawGraph()
 	    {

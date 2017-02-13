@@ -8,12 +8,12 @@
 		function Personne()
 		{
 			this.nom = 'nobody';
-			this.getNom = function()
-			{
-				return this.nom;
-			}
-			
-
+			this.naissance = new Date();
+		}
+		
+		Personne.prototype.getNom = function()
+		{
+			return this.nom;
 		}
 		
 		Personne.prototype.setNom = function(name)
@@ -21,12 +21,33 @@
 			this.nom = name;
 		}
 		
+		Personne.prototype.setDateNaissance = function(date)
+		{
+			this.naissance = date;
+		}
+		
+		Personne.prototype.getAge = function()
+		{
+			var date = Date.now();
+			return (date - this.naissance.getTime())/(1000*60*60*24);
+		}
+		
+		Personne.prototype.afficheAge = function()
+		{
+			var age = this.getAge()*(1000*60*60*24);
+			var d = new Date(age);
+			console.log(Math.abs(d.getUTCFullYear()-1970));
+		}
+		
 		var p1 = new Personne();
 		var p2 = new Personne();
 		
 		p1.setNom("Paul");
+		p2.setNom("Jean");
+		p1.setDateNaissance(new Date(1993,6,15));
 		
 		console.log(p1,p2);
+		p1.afficheAge();
 	</script>
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manip</title>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../underscore.js"></script>
+</head>
+<body>
+	<ul>
+	</ul>
+	
+	<form>
+		<input type='text' name='inputSend' value='input text'/>
+		<input type='button' name='buttonSend' value='envoyer'/>
+		<input type='text' name='inputSearch' value='search text'/>
+		<input type='button' name='buttonSearch' value='search'/>
+	</form>
+	
+	<script>
+		
+	var tab = [];
+	tab.push("bonjour");
+	tab.push("aurevoir");
+	tab.push("salut");
+	tab.push("mot");
+	
+		$(document).ready(function(){
+			//alert('page chargé');
+			
+			Util.init();
+			
+			$('input[name="buttonSend"]').on('click', function(){
+				console.log($('input[name="inputSend"]').val());
+				var $elem = $('input[name="inputSend"]');
+				if(_.isEmpty($elem.val()))
+				{
+					alert('element vide');		
+				}
+				else
+				{
+					Util.addElem($elem.val());
+					$elem.val('');
+				}
+			});
+			
+			$('input[name="buttonSearch"]').on('click',function(){
+				
+				var $value = $('input[name="inputSearch"]');
+				$('li').each(function()
+				{
+
+					var $elem = $(this);
+					var strElem = $elem.children().find('p').first().text();
+					var strValue = $value.val();
+					console.log(strElem+ '|'+strValue+ '||'+(strElem == strValue));
+					if(strElem===strValue)
+					{
+						$elem.children().find('p').first().css('background-color','green');
+					}
+				})
+			});
+		});
+		
+		var Util = {}
+		
+		Util.init = function()
+		{
+			for(var i in tab)
+			{
+				Util.addElem(tab[i]);	
+			}
+		}
+		
+		Util.getUL = function ()
+		{
+			return $('ul');
+		}
+		
+		Util.addElem = function(elem)
+		{
+			var inputDelete=$('<input>').attr('type','button').addClass('delete').val('X');
+			var inputHide=$('<input>').attr('type','button').addClass('hide').val('||');
+			var details =$('<p>').text('details details, Lorem ipsum');
+			var pElem = $('<p>')
+						.append($('<p>').text(elem)
+								.append(inputDelete)
+								.append(inputHide)
+						)
+						.append(details);
+			var li = $('<li>')
+						.append(pElem);
+			
+			inputDelete.on('click', function(){
+				li.remove();
+			});
+			
+			inputHide.click(function(){
+				if(details.is(':visible'))
+				{
+					details.hide();
+				}
+				else
+				{
+					details.show();
+				}
+			});
+			Util.getUL().append(li);
+		}
+	</script>
+	
+</body>
+</html>
